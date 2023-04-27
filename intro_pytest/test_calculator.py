@@ -29,6 +29,7 @@ class Calculadora:
         assert result == 10, "La multiplicacion de los numeros es correcta"
 
     def test_division():
+        calc = Calculadora()
         result = calc.division (4,2)
         assert result == 2.5, "La division de los numeros es correcta"
 
