@@ -13,6 +13,12 @@ class TestLaboratorioQAMinds:
         self.driver.get(URL)
     def test_search(self):
 
+        #valores esperados
+        exp_cost = "$122.00"
+        exp_wish_list_label = "1"
+        exp_success_msg = "Success: You have added"
+
+
         #Escribir display en la barra de busqueda
 
         element = self.driver.find_element(By.XPATH, '//*[@name="search"]')
@@ -26,6 +32,15 @@ class TestLaboratorioQAMinds:
         add_bttn = self.driver.find_element(By.ID, 'button-cart')
         add_bttn.click()
         time.sleep(2)
+
+        #verificar mensaje de que se agrego exitosamente
+        success_msg = self.driver.find_element(By.CLASS_NAME, "alert-success")
+        assert success_msg.is_enabled(), "Success message should be displayed"
+        print(success_msg.text)
+        assert exp_success_msg in success_msg.text, f"Success message should contain {exp_success_msg}"
+
+
+
 
     def teardown_method(self):
         self.driver.quit()
