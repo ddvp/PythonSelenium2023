@@ -53,7 +53,7 @@ class TestLaboratorioQAMinds:
         assert wish_list_label.is_displayed(), "Wish list label should be displayed"
         assert exp_wish_list_label in wish_list_label.text, f"Wish list label should contains {exp_wish_list_label}"
 
-        # Agregarlo al carro de compra
+        # Agregarlo al carrito de compra
         add_to_cart = self.driver.find_element(By.ID, "button-cart")
         assert add_to_cart.is_displayed() and add_to_cart.is_enabled(), "Add to cart should be displayed"
         add_to_cart.click()
@@ -63,6 +63,6 @@ class TestLaboratorioQAMinds:
         assert success_msg.is_enabled(), "Success message should be displayed"
         print(success_msg.text)
         assert exp_success_msg in success_msg.text, f"Success message should contain {exp_success_msg}"
-
+        time.sleep(5)
     def teardown_method(self):
-        self.driver.quit()
+        self.driver.quit
