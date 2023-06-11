@@ -35,5 +35,6 @@ class TestLaboratorioQAMinds:
         btn_continue = self.driver.find_element(By.CLASS_NAME, 'btn btn-primary')
         btn_continue.click()
 
+        time.sleep(2)
     def teardown_method(self):
         self.driver.quit()
